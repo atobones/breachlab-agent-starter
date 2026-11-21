@@ -1,0 +1,10 @@
+.breachlab-agent/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.env
+.env.*

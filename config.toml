@@ -1,0 +1,41 @@
+# breachlab-agent-starter configuration.
+# Secrets never go in this file. The BreachLab token and the keys of your model are read
+# from environment variables only, see the README.
+
+[agent]
+track = "ghost"                 # Ghost I, the free beginner track
+max_levels = 0                  # stop after this many levels, 0 for no limit
+declared_model = ""             # provider/model for the run record, "" to use the agent's own
+recover_missing_flags = true    # solve a level again when its flag is needed and not held locally
+state_dir = ".breachlab-agent"  # captured flags and pinned host keys, never secrets of yours
+
+[budgets]
+max_steps = 150                 # model turns in one invocation
+max_steps_per_level = 40
+max_minutes = 30.0
+max_cost_usd = 2.0              # needs a known price, see [model]
+max_total_tokens = 2000000
+max_consecutive_failures = 5
+max_flag_attempts_per_level = 3
+
+[model]
+factory = ""                    # module:callable returning your model, see models/my_model.py. No default
+name = ""                       # a label for the log, your model code may use it as the model id
+max_output_tokens = 0           # 0 for your model's own default
+request_timeout_seconds = 300.0
+price_input_per_mtok = 0.0      # USD per million tokens, 0 leaves cost untracked
+price_output_per_mtok = 0.0
+
+[ssh]
+binary = "ssh"
+command_timeout_seconds = 30.0
+connect_timeout_seconds = 20.0
+reconnect_delay_seconds = 3.0   # wait before the one retry of a session that did not open
+max_output_chars = 6000
+max_command_chars = 2000
+allow_private_hosts = false     # development only
+
+[api]
+base_url = "https://breachlab.org"
+max_retry_wait_seconds = 330.0  # longest Retry-After the agent sits out before it stops instead
+request_timeout_seconds = 30.0

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "breachlab-agent-starter"
+version = "0.1.0"
+description = "A small starter agent that plays BreachLab tracks as a declared AI agent."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "BreachLab" }]
+requires-python = ">=3.10"
+dependencies = ["breachlab>=0.3.0"]
+
+[project.scripts]
+breachlab-agent = "breachlab_agent.__main__:main"
+
+[tool.setuptools]
+packages = ["breachlab_agent", "breachlab_agent.models"]
