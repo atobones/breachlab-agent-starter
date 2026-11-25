@@ -50,13 +50,7 @@ def report(summary: RunSummary, log) -> int:
 
 
 def make_client(base_url: str, token: str, cfg: Config, log) -> BreachLab:
-    """The BreachLab SDK client, with this harness's own User-Agent.
-
-    It keeps the token in the Authorization header, on HTTPS only (plain HTTP
-    is accepted for localhost, which the bundled stub uses), never follows a
-    redirect, and sits through a 429 for as long as Retry-After says, up to
-    the wait the operator allows.
-    """
+    """The BreachLab SDK client, with this harness's own User-Agent."""
     return BreachLab(
         token, base_url,
         timeout=cfg.api.request_timeout_seconds,

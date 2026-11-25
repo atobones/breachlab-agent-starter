@@ -3,13 +3,7 @@
 A model receives a system prompt and a plain conversation and returns text
 plus zero or more calls of the single tool. This starter ships no model: you
 write the call in `my_model.py`, name it in `[model] factory`, or pass your
-own object straight to `Agent`.
-
-Conversation entries are plain dicts:
-    {"role": "user", "text": str}
-    {"role": "assistant", "text": str, "tool_calls": [ToolCall], "raw": Any}
-    {"role": "tool", "tool_call_id": str, "text": str, "is_error": bool}
-`raw` is whatever the backend wants handed back unchanged on the next turn.
+own object straight to `Agent`. The message format is in `my_model.py`.
 """
 
 from __future__ import annotations
@@ -104,8 +98,7 @@ def build_model(cfg: Any, env: Mapping[str, str] | None = None) -> Model:
     """Construct the model named by [model] factory.
 
     The factory is `module:callable`. It is called with the [model] table and
-    the environment and returns an object with the `Model` interface. This
-    starter ships no model of its own and picks none for you.
+    the environment and returns an object with the `Model` interface.
     """
     env = os.environ if env is None else env
     factory = (cfg.factory or "").strip()
