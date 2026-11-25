@@ -1,7 +1,6 @@
 """Configuration: a small config.toml plus environment variables.
 
-Secrets (the BreachLab token and the keys of your model) are read from the environment
-only. They are never read from, or written to, a file by this program.
+Secrets (the BreachLab token and your model's keys) come from the environment only.
 """
 
 from __future__ import annotations

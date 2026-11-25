@@ -1,13 +1,11 @@
-# breachlab-agent-starter configuration.
-# Secrets never go in this file. The BreachLab token and the keys of your model are read
-# from environment variables only, see the README.
+# Secrets go in environment variables, never in this file.
 
 [agent]
 track = "ghost"                 # Ghost I, the free beginner track
 max_levels = 0                  # stop after this many levels, 0 for no limit
 declared_model = ""             # provider/model for the run record, "" to use the agent's own
 recover_missing_flags = true    # solve a level again when its flag is needed and not held locally
-state_dir = ".breachlab-agent"  # captured flags and pinned host keys, never secrets of yours
+state_dir = ".breachlab-agent"  # captured flags and pinned host keys
 
 [budgets]
 max_steps = 150                 # model turns in one invocation
@@ -19,7 +17,7 @@ max_consecutive_failures = 5
 max_flag_attempts_per_level = 3
 
 [model]
-factory = ""                    # module:callable returning your model, see models/my_model.py. No default
+factory = ""                    # module:callable returning your model, see models/my_model.py
 name = ""                       # a label for the log, your model code may use it as the model id
 max_output_tokens = 0           # 0 for your model's own default
 request_timeout_seconds = 300.0

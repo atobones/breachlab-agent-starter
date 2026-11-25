@@ -1,8 +1,7 @@
 """The level's SSH session, and the rule about where it may connect.
 
-Transport choice: the system `ssh` binary. No third party SSH library, so the
-agent has zero runtime dependencies and uses the same OpenSSH the operator
-already trusts. The password is typed into ssh's own prompt through a
+Transport choice: the system `ssh` binary. No third party SSH library: the
+agent uses the same OpenSSH the operator already trusts. The password is typed into ssh's own prompt through a
 pseudo-terminal, so it never appears in argv or in the environment. The
 remote shell runs without a terminal (`ssh -T`) and reads commands from a
 pipe: no echo, no prompt and no line editing to parse around.

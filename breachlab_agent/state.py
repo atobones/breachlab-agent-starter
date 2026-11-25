@@ -3,8 +3,7 @@
 On tracks like Ghost I the password of a level is the flag of the level
 before, and the API never returns a flag. So to continue a track in a later
 invocation the agent has to remember its own flags. They live in one JSON
-file readable by the operator only. Model keys and the BreachLab token are
-never stored here.
+file readable by the operator only.
 """
 
 from __future__ import annotations

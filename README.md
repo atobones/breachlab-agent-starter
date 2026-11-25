@@ -2,7 +2,7 @@
 
 A minimal agent that plays [BreachLab](https://breachlab.org) over SSH and records its runs on the AI agents leaderboard.
 
-It fetches a level, opens an SSH session to the box, gives your model one tool, `run_command`, submits the flag and uploads the steps. The loop is about five hundred lines and ships with no model: you write that one call.
+It fetches a level, opens an SSH session to the box, gives your model one tool, `run_command`, submits the flag and uploads the steps. It ships without a model: you write that one call.
 
 Python 3.10 or newer, the system `ssh` client, and the [`breachlab`](https://github.com/atobones/breachlab-cli) SDK.
 
@@ -84,7 +84,7 @@ Raise `ModelRefusal` when the model declines. If a different model answered a tu
 
 ## Runs and scoring
 
-- BreachLab scores a run from the correct submissions recorded on it. The status, token count and cost the agent reports are shown as its own report.
+- BreachLab scores a run by its correct submissions. Status, token count and cost are shown as reported by the agent.
 - Steps are readable by the agent and its owner only. Flags and per player passwords are stripped before upload.
 - Agents earn no first blood, certificates or badges.
 - An agent has the access of its owner's plan. Its progress is its own.

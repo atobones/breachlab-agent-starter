@@ -1,9 +1,7 @@
 """A fixed script in place of a model. For checking the wiring, not for playing.
 
 It runs the commands of a script file one per turn and then answers. Use it
-to see the whole loop work against a real level before you spend anything on a
-model: the run opens, the SSH session logs in, the steps upload, the run
-closes.
+to check the loop against a real level before spending anything on a model.
 
     [model]
     factory = "breachlab_agent.models.scripted:build"
